@@ -21,5 +21,4 @@ public class HelloService {
         String decodedString = new String(decodedBytes);
         return new Hello(1L, decodedString);
     }
-
 }
