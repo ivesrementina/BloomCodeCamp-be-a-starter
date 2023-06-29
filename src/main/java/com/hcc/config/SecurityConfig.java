@@ -1,5 +1,6 @@
 package com.hcc.config;
 
+
 import com.hcc.filters.jwtFilter;
 import com.hcc.services.UserDetailServiceImpl;
 import com.hcc.utils.CustomPasswordEncoder;
@@ -53,5 +54,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
 
 }
