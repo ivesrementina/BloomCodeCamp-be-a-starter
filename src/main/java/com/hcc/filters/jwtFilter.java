@@ -27,7 +27,7 @@ public class jwtFilter extends OncePerRequestFilter {
     private UserRepository userRepo;
 
     @Autowired
-    private JWTUtils jwtUtils;
+    private JWTUtils jwtUtil;
 
 
     @Override
@@ -44,9 +44,9 @@ public class jwtFilter extends OncePerRequestFilter {
         final String token = header.split(" ")[1].trim();
 
         // Get user identity
-        UserDetails userDetails = userRepo.findByUsername(jwtUtils.getUsernameFromToken(token)).orElse(null);
+        UserDetails userDetails = userRepo.findByUsername(jwtUtil.getUsernameFromToken(token)).orElse(null);
 
-        if (!jwtUtils.validateToken(token, userDetails)) {
+        if (!jwtUtil.validateToken(token, userDetails)) {
             filterChain.doFilter(request,response);
             return;
         }

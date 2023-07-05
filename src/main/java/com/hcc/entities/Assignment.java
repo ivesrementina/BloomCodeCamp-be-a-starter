@@ -18,9 +18,11 @@ public class Assignment {
     private String branch;
     @Column(name = "review_video_url")
     private String reviewVideoUrl;
-    @Column(name = "users")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
-    @Column(name = "code_reviewer")
+    @ManyToOne
+    @JoinColumn(name = "reviewer_id")
     private User codeReviewer;
 
     public Assignment(String status, Integer number, String githubUrl, String branch, String reviewVideoUrl, User user, User codeReviewer) {
