@@ -26,14 +26,18 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "email")
+    private String email;
+
     @OneToMany(targetEntity = Authority.class, mappedBy = "user")
     private List<Authority> authorities;
 
     public User(){};
-    public User(LocalDate cohortStartDate, String username, String password) {
+    public User(LocalDate cohortStartDate, String username, String password, String email) {
         this.cohortStartDate = cohortStartDate;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public void setUsername(String username) {
@@ -103,4 +107,13 @@ public class User implements UserDetails {
         return password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
+
+
